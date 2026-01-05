@@ -10,3 +10,11 @@ C:\Users\ZukoZama\OneDrive\Documents\VBProjects\WindowsApp1\obj\Debug\WindowsApp
 C:\Users\ZukoZama\OneDrive\Documents\VBProjects\WindowsApp1\obj\Debug\WindowsApp1.exe
 C:\Users\ZukoZama\OneDrive\Documents\VBProjects\WindowsApp1\obj\Debug\WindowsApp1.xml
 C:\Users\ZukoZama\OneDrive\Documents\VBProjects\WindowsApp1\obj\Debug\WindowsApp1.pdb
+C:\Users\Zuko\OneDrive\Documents\VBProjects\WindowsApp1\obj\Debug\WindowsApp1.vbproj.AssemblyReference.cache
+C:\Users\Zuko\OneDrive\Documents\VBProjects\WindowsApp1\obj\Debug\WindowsApp1.Form1.resources
+C:\Users\Zuko\OneDrive\Documents\VBProjects\WindowsApp1\obj\Debug\WindowsApp1.Resources.resources
+C:\Users\Zuko\OneDrive\Documents\VBProjects\WindowsApp1\obj\Debug\WindowsApp1.vbproj.GenerateResource.cache
+C:\Users\Zuko\OneDrive\Documents\VBProjects\WindowsApp1\obj\Debug\WindowsApp1.vbproj.CoreCompileInputs.cache
+C:\Users\Zuko\OneDrive\Documents\VBProjects\WindowsApp1\obj\Debug\WindowsApp1.exe
+C:\Users\Zuko\OneDrive\Documents\VBProjects\WindowsApp1\obj\Debug\WindowsApp1.xml
+C:\Users\Zuko\OneDrive\Documents\VBProjects\WindowsApp1\obj\Debug\WindowsApp1.pdb
