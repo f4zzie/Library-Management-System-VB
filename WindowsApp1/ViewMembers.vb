@@ -22,18 +22,24 @@ Public Class ViewMembers
         ' Add columns
         dgvMembers.Columns.Add("MemberID", "Member ID")
         dgvMembers.Columns.Add("Name", "Full Name")
+        dgvMembers.Columns.Add("StudentID", "Student ID")
+        dgvMembers.Columns.Add("Gender", "Gender")
+        dgvMembers.Columns.Add("Address", "Address")
         dgvMembers.Columns.Add("Email", "Email")
         dgvMembers.Columns.Add("Phone", "Phone")
         dgvMembers.Columns.Add("Type", "Member Type")
         dgvMembers.Columns.Add("Date", "Registration Date")
 
         ' Set column widths
-        dgvMembers.Columns(0).Width = 100
-        dgvMembers.Columns(1).Width = 200
-        dgvMembers.Columns(2).Width = 200
-        dgvMembers.Columns(3).Width = 120
-        dgvMembers.Columns(4).Width = 120
-        dgvMembers.Columns(5).Width = 130
+        dgvMembers.Columns(0).Width = 90   ' MemberID
+        dgvMembers.Columns(1).Width = 140  ' Name
+        dgvMembers.Columns(2).Width = 100  ' StudentID
+        dgvMembers.Columns(3).Width = 70   ' Gender
+        dgvMembers.Columns(4).Width = 150  ' Address
+        dgvMembers.Columns(5).Width = 160  ' Email
+        dgvMembers.Columns(6).Width = 100  ' Phone
+        dgvMembers.Columns(7).Width = 90   ' Type
+        dgvMembers.Columns(8).Width = 100  ' Date
 
         ' Set properties
         dgvMembers.ReadOnly = True
@@ -62,15 +68,17 @@ Public Class ViewMembers
                 If Not String.IsNullOrWhiteSpace(line) Then
                     Dim parts() As String = line.Split("|"c)
 
-                    If parts.Length >= 6 Then
+                    If parts.Length >= 9 Then
                         ' Apply search filter if provided
                         If String.IsNullOrWhiteSpace(searchText) OrElse
                            parts(0).ToLower().Contains(searchText.ToLower()) OrElse
                            parts(1).ToLower().Contains(searchText.ToLower()) OrElse
                            parts(2).ToLower().Contains(searchText.ToLower()) OrElse
-                           parts(4).ToLower().Contains(searchText.ToLower()) Then
+                           parts(4).ToLower().Contains(searchText.ToLower()) OrElse
+                           parts(5).ToLower().Contains(searchText.ToLower()) OrElse
+                           parts(7).ToLower().Contains(searchText.ToLower()) Then
 
-                            dgvMembers.Rows.Add(parts(0), parts(1), parts(2), parts(3), parts(4), parts(5))
+                            dgvMembers.Rows.Add(parts(0), parts(1), parts(2), parts(3), parts(4), parts(5), parts(6), parts(7), parts(8))
                             count += 1
                         End If
                     End If

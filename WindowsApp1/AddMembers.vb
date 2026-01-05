@@ -43,10 +43,13 @@ Public Class AddMembers
                 Return
             End If
 
-            ' Create member record
-            Dim memberRecord As String = String.Format("{0}|{1}|{2}|{3}|{4}|{5}",
+            ' Create member record (now includes Student ID, Gender, and Address)
+            Dim memberRecord As String = String.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}",
                 txtMemberID.Text.Trim(),
                 txtName.Text.Trim(),
+                txtStudentID.Text.Trim(),
+                cmbGender.Text.Trim(),
+                txtAddress.Text.Trim().Replace(vbCrLf, " ").Replace(vbLf, " "),
                 txtEmail.Text.Trim(),
                 txtPhone.Text.Trim(),
                 cmbMemberType.Text.Trim(),
@@ -73,6 +76,27 @@ Public Class AddMembers
         If String.IsNullOrWhiteSpace(txtName.Text) Then
             MessageBox.Show("Please enter the member name", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             txtName.Focus()
+            Return False
+        End If
+
+        ' Validate Student ID
+        If String.IsNullOrWhiteSpace(txtStudentID.Text) Then
+            MessageBox.Show("Please enter the student/registration ID", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtStudentID.Focus()
+            Return False
+        End If
+
+        ' Validate Gender
+        If String.IsNullOrWhiteSpace(cmbGender.Text) Then
+            MessageBox.Show("Please select a gender", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            cmbGender.Focus()
+            Return False
+        End If
+
+        ' Validate Address
+        If String.IsNullOrWhiteSpace(txtAddress.Text) Then
+            MessageBox.Show("Please enter the address", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtAddress.Focus()
             Return False
         End If
 
@@ -127,6 +151,9 @@ Public Class AddMembers
     ' Clear Form
     Private Sub ClearForm()
         txtName.Clear()
+        txtStudentID.Clear()
+        cmbGender.SelectedIndex = -1
+        txtAddress.Clear()
         txtEmail.Clear()
         txtPhone.Clear()
         cmbMemberType.SelectedIndex = -1

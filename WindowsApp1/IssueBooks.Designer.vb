@@ -20,12 +20,11 @@ Partial Class IssueBooks
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.btnVerifyBook = New System.Windows.Forms.Button()
         Me.txtAuthor = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtBookTitle = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtBookID = New System.Windows.Forms.TextBox()
+        Me.cmbBookSelect = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.btnVerifyMember = New System.Windows.Forms.Button()
@@ -70,12 +69,11 @@ Partial Class IssueBooks
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.btnVerifyBook)
         Me.GroupBox1.Controls.Add(Me.txtAuthor)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.txtBookTitle)
         Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.txtBookID)
+        Me.GroupBox1.Controls.Add(Me.cmbBookSelect)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.GroupBox1.Location = New System.Drawing.Point(30, 90)
@@ -85,46 +83,25 @@ Partial Class IssueBooks
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Book Information"
         '
-        'btnVerifyBook
+        'cmbBookSelect
         '
-        Me.btnVerifyBook.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.btnVerifyBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnVerifyBook.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.btnVerifyBook.ForeColor = System.Drawing.Color.White
-        Me.btnVerifyBook.Location = New System.Drawing.Point(520, 30)
-        Me.btnVerifyBook.Name = "btnVerifyBook"
-        Me.btnVerifyBook.Size = New System.Drawing.Size(100, 30)
-        Me.btnVerifyBook.TabIndex = 6
-        Me.btnVerifyBook.Text = "Verify"
-        Me.btnVerifyBook.UseVisualStyleBackColor = False
+        Me.cmbBookSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbBookSelect.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.cmbBookSelect.FormattingEnabled = True
+        Me.cmbBookSelect.Location = New System.Drawing.Point(140, 30)
+        Me.cmbBookSelect.Name = "cmbBookSelect"
+        Me.cmbBookSelect.Size = New System.Drawing.Size(480, 25)
+        Me.cmbBookSelect.TabIndex = 1
         '
-        'txtAuthor
+        'Label2
         '
-        Me.txtAuthor.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.txtAuthor.Location = New System.Drawing.Point(140, 100)
-        Me.txtAuthor.Name = "txtAuthor"
-        Me.txtAuthor.ReadOnly = True
-        Me.txtAuthor.Size = New System.Drawing.Size(350, 25)
-        Me.txtAuthor.TabIndex = 5
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label4.Location = New System.Drawing.Point(20, 103)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(57, 19)
-        Me.Label4.TabIndex = 4
-        Me.Label4.Text = "Author:"
-        '
-        'txtBookTitle
-        '
-        Me.txtBookTitle.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.txtBookTitle.Location = New System.Drawing.Point(140, 65)
-        Me.txtBookTitle.Name = "txtBookTitle"
-        Me.txtBookTitle.ReadOnly = True
-        Me.txtBookTitle.Size = New System.Drawing.Size(350, 25)
-        Me.txtBookTitle.TabIndex = 3
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label2.Location = New System.Drawing.Point(20, 33)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(86, 19)
+        Me.Label2.TabIndex = 0
+        Me.Label2.Text = "Select Book:"
         '
         'Label3
         '
@@ -136,23 +113,33 @@ Partial Class IssueBooks
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Book Title:"
         '
-        'txtBookID
+        'txtBookTitle
         '
-        Me.txtBookID.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.txtBookID.Location = New System.Drawing.Point(140, 30)
-        Me.txtBookID.Name = "txtBookID"
-        Me.txtBookID.Size = New System.Drawing.Size(350, 25)
-        Me.txtBookID.TabIndex = 1
+        Me.txtBookTitle.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.txtBookTitle.Location = New System.Drawing.Point(140, 65)
+        Me.txtBookTitle.Name = "txtBookTitle"
+        Me.txtBookTitle.ReadOnly = True
+        Me.txtBookTitle.Size = New System.Drawing.Size(480, 25)
+        Me.txtBookTitle.TabIndex = 3
         '
-        'Label2
+        'Label4
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label2.Location = New System.Drawing.Point(20, 33)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(64, 19)
-        Me.Label2.TabIndex = 0
-        Me.Label2.Text = "Book ID:"
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label4.Location = New System.Drawing.Point(20, 103)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(57, 19)
+        Me.Label4.TabIndex = 4
+        Me.Label4.Text = "Author:"
+        '
+        'txtAuthor
+        '
+        Me.txtAuthor.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.txtAuthor.Location = New System.Drawing.Point(140, 100)
+        Me.txtAuthor.Name = "txtAuthor"
+        Me.txtAuthor.ReadOnly = True
+        Me.txtAuthor.Size = New System.Drawing.Size(480, 25)
+        Me.txtAuthor.TabIndex = 5
         '
         'GroupBox2
         '
@@ -351,13 +338,13 @@ Partial Class IssueBooks
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label1 As Label
     Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents cmbBookSelect As ComboBox
     Friend WithEvents txtBookID As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents txtAuthor As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents txtBookTitle As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents btnVerifyBook As Button
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents txtMemberID As TextBox
     Friend WithEvents Label5 As Label

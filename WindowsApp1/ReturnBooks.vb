@@ -166,7 +166,7 @@ Public Class ReturnBooks
         End Try
     End Sub
 
-    ' Update Book Quantity
+    ' Update Book Quantity (AvailableCopies in new 11-field format)
     Private Sub UpdateBookQuantity(bookID As String, change As Integer)
         Try
             If File.Exists("books.txt") Then
@@ -176,10 +176,12 @@ Public Class ReturnBooks
                 For Each line As String In lines
                     If Not String.IsNullOrWhiteSpace(line) Then
                         Dim parts() As String = line.Split("|"c)
-                        If parts(0) = bookID Then
-                            Dim newQuantity As Integer = Integer.Parse(parts(4)) + change
-                            Dim newLine As String = String.Format("{0}|{1}|{2}|{3}|{4}|{5}",
-                                parts(0), parts(1), parts(2), parts(3), newQuantity, parts(5))
+                        If parts(0) = bookID AndAlso parts.Length >= 11 Then
+                            ' Update AvailableCopies (field 8)
+                            Dim newAvailable As Integer = Integer.Parse(parts(8)) + change
+                            ' Format: BookID|Title|Author|ISBN|Category|Publisher|PublishYear|TotalCopies|AvailableCopies|ShelfLocation|AddedDate
+                            Dim newLine As String = String.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}",
+                                parts(0), parts(1), parts(2), parts(3), parts(4), parts(5), parts(6), parts(7), newAvailable, parts(9), parts(10))
                             newLines.Add(newLine)
                         Else
                             newLines.Add(line)

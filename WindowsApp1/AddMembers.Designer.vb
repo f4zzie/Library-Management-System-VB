@@ -31,6 +31,12 @@ Partial Class AddMembers
         Me.cmbMemberType = New System.Windows.Forms.ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.dtpRegistration = New System.Windows.Forms.DateTimePicker()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.txtStudentID = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.cmbGender = New System.Windows.Forms.ComboBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.txtAddress = New System.Windows.Forms.TextBox()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.btnClose = New System.Windows.Forms.Button()
@@ -94,50 +100,108 @@ Partial Class AddMembers
         Me.txtName.Size = New System.Drawing.Size(350, 27)
         Me.txtName.TabIndex = 4
         '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label8.Location = New System.Drawing.Point(50, 180)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(85, 20)
+        Me.Label8.TabIndex = 5
+        Me.Label8.Text = "Student ID:"
+        '
+        'txtStudentID
+        '
+        Me.txtStudentID.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.txtStudentID.Location = New System.Drawing.Point(200, 177)
+        Me.txtStudentID.Name = "txtStudentID"
+        Me.txtStudentID.Size = New System.Drawing.Size(350, 27)
+        Me.txtStudentID.TabIndex = 6
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label9.Location = New System.Drawing.Point(50, 220)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(64, 20)
+        Me.Label9.TabIndex = 7
+        Me.Label9.Text = "Gender:"
+        '
+        'cmbGender
+        '
+        Me.cmbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbGender.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.cmbGender.FormattingEnabled = True
+        Me.cmbGender.Items.AddRange(New Object() {"Male", "Female", "Other"})
+        Me.cmbGender.Location = New System.Drawing.Point(200, 217)
+        Me.cmbGender.Name = "cmbGender"
+        Me.cmbGender.Size = New System.Drawing.Size(350, 28)
+        Me.cmbGender.TabIndex = 8
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label12.Location = New System.Drawing.Point(50, 260)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(70, 20)
+        Me.Label12.TabIndex = 9
+        Me.Label12.Text = "Address:"
+        '
+        'txtAddress
+        '
+        Me.txtAddress.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.txtAddress.Location = New System.Drawing.Point(200, 257)
+        Me.txtAddress.Multiline = True
+        Me.txtAddress.Name = "txtAddress"
+        Me.txtAddress.Size = New System.Drawing.Size(350, 60)
+        Me.txtAddress.TabIndex = 10
+        '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label4.Location = New System.Drawing.Point(50, 180)
+        Me.Label4.Location = New System.Drawing.Point(50, 330)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(111, 20)
-        Me.Label4.TabIndex = 5
+        Me.Label4.TabIndex = 11
         Me.Label4.Text = "Email Address:"
         '
         'txtEmail
         '
         Me.txtEmail.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.txtEmail.Location = New System.Drawing.Point(200, 177)
+        Me.txtEmail.Location = New System.Drawing.Point(200, 327)
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(350, 27)
-        Me.txtEmail.TabIndex = 6
+        Me.txtEmail.TabIndex = 12
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label5.Location = New System.Drawing.Point(50, 220)
+        Me.Label5.Location = New System.Drawing.Point(50, 370)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(117, 20)
-        Me.Label5.TabIndex = 7
+        Me.Label5.TabIndex = 13
         Me.Label5.Text = "Phone Number:"
         '
         'txtPhone
         '
         Me.txtPhone.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.txtPhone.Location = New System.Drawing.Point(200, 217)
+        Me.txtPhone.Location = New System.Drawing.Point(200, 367)
         Me.txtPhone.Name = "txtPhone"
         Me.txtPhone.Size = New System.Drawing.Size(350, 27)
-        Me.txtPhone.TabIndex = 8
+        Me.txtPhone.TabIndex = 14
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label6.Location = New System.Drawing.Point(50, 260)
+        Me.Label6.Location = New System.Drawing.Point(50, 410)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(106, 20)
-        Me.Label6.TabIndex = 9
+        Me.Label6.TabIndex = 15
         Me.Label6.Text = "Member Type:"
         '
         'cmbMemberType
@@ -146,29 +210,29 @@ Partial Class AddMembers
         Me.cmbMemberType.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.cmbMemberType.FormattingEnabled = True
         Me.cmbMemberType.Items.AddRange(New Object() {"Student", "Faculty", "Staff", "Public"})
-        Me.cmbMemberType.Location = New System.Drawing.Point(200, 257)
+        Me.cmbMemberType.Location = New System.Drawing.Point(200, 407)
         Me.cmbMemberType.Name = "cmbMemberType"
         Me.cmbMemberType.Size = New System.Drawing.Size(350, 28)
-        Me.cmbMemberType.TabIndex = 10
+        Me.cmbMemberType.TabIndex = 16
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label7.Location = New System.Drawing.Point(50, 300)
+        Me.Label7.Location = New System.Drawing.Point(50, 450)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(133, 20)
-        Me.Label7.TabIndex = 11
+        Me.Label7.TabIndex = 17
         Me.Label7.Text = "Registration Date:"
         '
         'dtpRegistration
         '
         Me.dtpRegistration.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.dtpRegistration.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpRegistration.Location = New System.Drawing.Point(200, 297)
+        Me.dtpRegistration.Location = New System.Drawing.Point(200, 447)
         Me.dtpRegistration.Name = "dtpRegistration"
         Me.dtpRegistration.Size = New System.Drawing.Size(350, 27)
-        Me.dtpRegistration.TabIndex = 12
+        Me.dtpRegistration.TabIndex = 18
         '
         'btnAdd
         '
@@ -176,10 +240,10 @@ Partial Class AddMembers
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAdd.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnAdd.ForeColor = System.Drawing.Color.White
-        Me.btnAdd.Location = New System.Drawing.Point(50, 360)
+        Me.btnAdd.Location = New System.Drawing.Point(50, 510)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(160, 45)
-        Me.btnAdd.TabIndex = 13
+        Me.btnAdd.TabIndex = 19
         Me.btnAdd.Text = "Add Member"
         Me.btnAdd.UseVisualStyleBackColor = False
         '
@@ -189,10 +253,10 @@ Partial Class AddMembers
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnClear.ForeColor = System.Drawing.Color.White
-        Me.btnClear.Location = New System.Drawing.Point(220, 360)
+        Me.btnClear.Location = New System.Drawing.Point(220, 510)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(160, 45)
-        Me.btnClear.TabIndex = 14
+        Me.btnClear.TabIndex = 20
         Me.btnClear.Text = "Clear"
         Me.btnClear.UseVisualStyleBackColor = False
         '
@@ -202,10 +266,10 @@ Partial Class AddMembers
         Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClose.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnClose.ForeColor = System.Drawing.Color.White
-        Me.btnClose.Location = New System.Drawing.Point(390, 360)
+        Me.btnClose.Location = New System.Drawing.Point(390, 510)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(160, 45)
-        Me.btnClose.TabIndex = 15
+        Me.btnClose.TabIndex = 21
         Me.btnClose.Text = "Close"
         Me.btnClose.UseVisualStyleBackColor = False
         '
@@ -214,7 +278,7 @@ Partial Class AddMembers
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(600, 430)
+        Me.ClientSize = New System.Drawing.Size(600, 580)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.btnAdd)
@@ -224,8 +288,14 @@ Partial Class AddMembers
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.txtPhone)
         Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.cmbGender)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.txtAddress)
+        Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.txtEmail)
         Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.txtStudentID)
+        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.txtName)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtMemberID)
@@ -249,6 +319,12 @@ Partial Class AddMembers
     Friend WithEvents txtMemberID As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents txtName As TextBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents txtStudentID As TextBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents cmbGender As ComboBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents txtAddress As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents txtEmail As TextBox
     Friend WithEvents Label5 As Label

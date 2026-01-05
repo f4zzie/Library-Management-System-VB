@@ -16,6 +16,58 @@ Public Class IssueBooks
 
         ' Calculate and set due date (14 days from today)
         dtpDueDate.Value = DateTime.Now.AddDays(14)
+
+        ' Load available books into dropdown
+        LoadAvailableBooks()
+    End Sub
+
+    ' Load Available Books into Dropdown
+    Private Sub LoadAvailableBooks()
+        Try
+            cmbBookSelect.Items.Clear()
+
+            If File.Exists("books.txt") Then
+                Dim lines() As String = File.ReadAllLines("books.txt")
+                For Each line As String In lines
+                    If Not String.IsNullOrWhiteSpace(line) Then
+                        Dim parts() As String = line.Split("|"c)
+                        ' Only show books with available copies (field 8 > 0)
+                        If parts.Length >= 11 AndAlso Integer.Parse(parts(8)) > 0 Then
+                            ' Format: "BK0001 - Book Title (Available: 5)"
+                            Dim displayText As String = String.Format("{0} - {1} (Available: {2})",
+                                parts(0), parts(1), parts(8))
+                            cmbBookSelect.Items.Add(displayText)
+                        End If
+                    End If
+                Next
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Error loading books: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    ' Book Selection Changed
+    Private Sub cmbBookSelect_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbBookSelect.SelectedIndexChanged
+        Try
+            If cmbBookSelect.SelectedIndex >= 0 Then
+                Dim selectedText As String = cmbBookSelect.SelectedItem.ToString()
+                ' Extract Book ID from "BK0001 - Title (Available: 5)"
+                Dim bookID As String = selectedText.Split("-"c)(0).Trim()
+
+                ' Get full book info
+                Dim bookInfo As String = GetBookInfo(bookID)
+                If Not String.IsNullOrEmpty(bookInfo) Then
+                    Dim parts() As String = bookInfo.Split("|"c)
+                    If parts.Length >= 11 Then
+                        txtBookID.Text = parts(0)  ' Store Book ID for later use
+                        txtBookTitle.Text = parts(1)
+                        txtAuthor.Text = parts(2)
+                    End If
+                End If
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Error selecting book: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
     ' Generate next Issue ID
@@ -39,37 +91,7 @@ Public Class IssueBooks
         End Try
     End Function
 
-    ' Verify Book Button
-    Private Sub btnVerifyBook_Click(sender As Object, e As EventArgs) Handles btnVerifyBook.Click
-        Try
-            If String.IsNullOrWhiteSpace(txtBookID.Text) Then
-                MessageBox.Show("Please enter a Book ID", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                Return
-            End If
 
-            Dim bookInfo As String = GetBookInfo(txtBookID.Text.Trim())
-
-            If Not String.IsNullOrEmpty(bookInfo) Then
-                Dim parts() As String = bookInfo.Split("|"c)
-                If Integer.Parse(parts(4)) > 0 Then
-                    txtBookTitle.Text = parts(1)
-                    txtAuthor.Text = parts(2)
-                    MessageBox.Show("Book verified successfully!" & vbNewLine & "Available copies: " & parts(4), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Else
-                    MessageBox.Show("This book is currently out of stock", "Not Available", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                    txtBookTitle.Clear()
-                    txtAuthor.Clear()
-                End If
-            Else
-                MessageBox.Show("Book ID not found in the database", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                txtBookTitle.Clear()
-                txtAuthor.Clear()
-            End If
-
-        Catch ex As Exception
-            MessageBox.Show("Error verifying book: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-    End Sub
 
     ' Verify Member Button
     Private Sub btnVerifyMember_Click(sender As Object, e As EventArgs) Handles btnVerifyMember.Click
@@ -171,13 +193,13 @@ Public Class IssueBooks
 
     ' Validate Inputs
     Private Function ValidateInputs() As Boolean
-        If String.IsNullOrWhiteSpace(txtBookID.Text) Then
-            MessageBox.Show("Please enter and verify a Book ID", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        If cmbBookSelect.SelectedIndex < 0 Then
+            MessageBox.Show("Please select a book", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return False
         End If
 
         If String.IsNullOrWhiteSpace(txtBookTitle.Text) Then
-            MessageBox.Show("Please verify the book first", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            MessageBox.Show("Book information not loaded", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return False
         End If
 
@@ -194,7 +216,7 @@ Public Class IssueBooks
         Return True
     End Function
 
-    ' Update Book Quantity
+    ' Update Book Quantity (AvailableCopies in new 11-field format)
     Private Sub UpdateBookQuantity(bookID As String, change As Integer)
         Try
             If File.Exists("books.txt") Then
@@ -204,9 +226,12 @@ Public Class IssueBooks
                 For Each line As String In lines
                     If Not String.IsNullOrWhiteSpace(line) Then
                         Dim parts() As String = line.Split("|"c)
-                        If parts(0) = bookID Then
-                            Dim newQuantity As Integer = Integer.Parse(parts(4)) + change
-                            Dim newLine As String = String.Format("{0}|{1}|{2}|{3}|{4}|{5}", parts(0), parts(1), parts(2), parts(3), newQuantity, parts(5))
+                        If parts(0) = bookID AndAlso parts.Length >= 11 Then
+                            ' Update AvailableCopies (field 8)
+                            Dim newAvailable As Integer = Integer.Parse(parts(8)) + change
+                            ' Format: BookID|Title|Author|ISBN|Category|Publisher|PublishYear|TotalCopies|AvailableCopies|ShelfLocation|AddedDate
+                            Dim newLine As String = String.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}",
+                                parts(0), parts(1), parts(2), parts(3), parts(4), parts(5), parts(6), parts(7), newAvailable, parts(9), parts(10))
                             newLines.Add(newLine)
                         Else
                             newLines.Add(line)
@@ -224,6 +249,7 @@ Public Class IssueBooks
 
     ' Clear Form
     Private Sub ClearForm()
+        cmbBookSelect.SelectedIndex = -1
         txtBookID.Clear()
         txtBookTitle.Clear()
         txtAuthor.Clear()
@@ -232,7 +258,8 @@ Public Class IssueBooks
         dtpIssueDate.Value = DateTime.Now
         dtpDueDate.Value = DateTime.Now.AddDays(14)
         txtIssueID.Text = GenerateNextIssueID()
-        txtBookID.Focus()
+        LoadAvailableBooks()  ' Refresh book list
+        cmbBookSelect.Focus()
     End Sub
 
     ' Clear Button

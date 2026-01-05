@@ -28,9 +28,17 @@ Partial Class AddBooks
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtISBN = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtQuantity = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.cmbCategory = New System.Windows.Forms.ComboBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.txtPublisher = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.txtPublishYear = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtTotalCopies = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.txtShelfLocation = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.dtpAddedDate = New System.Windows.Forms.DateTimePicker()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.btnClose = New System.Windows.Forms.Button()
@@ -136,17 +144,20 @@ Partial Class AddBooks
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label6.Location = New System.Drawing.Point(50, 260)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(73, 20)
+        Me.Label6.Size = New System.Drawing.Size(76, 20)
         Me.Label6.TabIndex = 9
-        Me.Label6.Text = "Quantity:"
+        Me.Label6.Text = "Category:"
         '
-        'txtQuantity
+        'cmbCategory
         '
-        Me.txtQuantity.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.txtQuantity.Location = New System.Drawing.Point(200, 257)
-        Me.txtQuantity.Name = "txtQuantity"
-        Me.txtQuantity.Size = New System.Drawing.Size(350, 27)
-        Me.txtQuantity.TabIndex = 10
+        Me.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbCategory.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.cmbCategory.FormattingEnabled = True
+        Me.cmbCategory.Items.AddRange(New Object() {"Fiction", "Non-Fiction", "Science", "Technology", "History", "Biography", "Education", "Children", "Reference", "Other"})
+        Me.cmbCategory.Location = New System.Drawing.Point(200, 257)
+        Me.cmbCategory.Name = "cmbCategory"
+        Me.cmbCategory.Size = New System.Drawing.Size(350, 28)
+        Me.cmbCategory.TabIndex = 10
         '
         'Label7
         '
@@ -156,18 +167,88 @@ Partial Class AddBooks
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(76, 20)
         Me.Label7.TabIndex = 11
-        Me.Label7.Text = "Category:"
+        Me.Label7.Text = "Publisher:"
         '
-        'cmbCategory
+        'txtPublisher
         '
-        Me.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbCategory.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.cmbCategory.FormattingEnabled = True
-        Me.cmbCategory.Items.AddRange(New Object() {"Fiction", "Non-Fiction", "Science", "Technology", "History", "Biography", "Education", "Children", "Reference", "Other"})
-        Me.cmbCategory.Location = New System.Drawing.Point(200, 297)
-        Me.cmbCategory.Name = "cmbCategory"
-        Me.cmbCategory.Size = New System.Drawing.Size(350, 28)
-        Me.cmbCategory.TabIndex = 12
+        Me.txtPublisher.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.txtPublisher.Location = New System.Drawing.Point(200, 297)
+        Me.txtPublisher.Name = "txtPublisher"
+        Me.txtPublisher.Size = New System.Drawing.Size(350, 27)
+        Me.txtPublisher.TabIndex = 12
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label8.Location = New System.Drawing.Point(50, 340)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(99, 20)
+        Me.Label8.TabIndex = 13
+        Me.Label8.Text = "Publish Year:"
+        '
+        'txtPublishYear
+        '
+        Me.txtPublishYear.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.txtPublishYear.Location = New System.Drawing.Point(200, 337)
+        Me.txtPublishYear.Name = "txtPublishYear"
+        Me.txtPublishYear.Size = New System.Drawing.Size(350, 27)
+        Me.txtPublishYear.TabIndex = 14
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label9.Location = New System.Drawing.Point(50, 380)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(99, 20)
+        Me.Label9.TabIndex = 15
+        Me.Label9.Text = "Total Copies:"
+        '
+        'txtTotalCopies
+        '
+        Me.txtTotalCopies.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.txtTotalCopies.Location = New System.Drawing.Point(200, 377)
+        Me.txtTotalCopies.Name = "txtTotalCopies"
+        Me.txtTotalCopies.Size = New System.Drawing.Size(350, 27)
+        Me.txtTotalCopies.TabIndex = 16
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label10.Location = New System.Drawing.Point(50, 420)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(112, 20)
+        Me.Label10.TabIndex = 17
+        Me.Label10.Text = "Shelf Location:"
+        '
+        'txtShelfLocation
+        '
+        Me.txtShelfLocation.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.txtShelfLocation.Location = New System.Drawing.Point(200, 417)
+        Me.txtShelfLocation.Name = "txtShelfLocation"
+        Me.txtShelfLocation.Size = New System.Drawing.Size(350, 27)
+        Me.txtShelfLocation.TabIndex = 18
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label11.Location = New System.Drawing.Point(50, 460)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(96, 20)
+        Me.Label11.TabIndex = 19
+        Me.Label11.Text = "Added Date:"
+        '
+        'dtpAddedDate
+        '
+        Me.dtpAddedDate.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.dtpAddedDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpAddedDate.Location = New System.Drawing.Point(200, 457)
+        Me.dtpAddedDate.Name = "dtpAddedDate"
+        Me.dtpAddedDate.Size = New System.Drawing.Size(350, 27)
+        Me.dtpAddedDate.TabIndex = 20
         '
         'btnAdd
         '
@@ -175,10 +256,10 @@ Partial Class AddBooks
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAdd.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnAdd.ForeColor = System.Drawing.Color.White
-        Me.btnAdd.Location = New System.Drawing.Point(50, 360)
+        Me.btnAdd.Location = New System.Drawing.Point(50, 520)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(160, 45)
-        Me.btnAdd.TabIndex = 13
+        Me.btnAdd.TabIndex = 21
         Me.btnAdd.Text = "Add Book"
         Me.btnAdd.UseVisualStyleBackColor = False
         '
@@ -188,10 +269,10 @@ Partial Class AddBooks
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnClear.ForeColor = System.Drawing.Color.White
-        Me.btnClear.Location = New System.Drawing.Point(220, 360)
+        Me.btnClear.Location = New System.Drawing.Point(220, 520)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(160, 45)
-        Me.btnClear.TabIndex = 14
+        Me.btnClear.TabIndex = 22
         Me.btnClear.Text = "Clear"
         Me.btnClear.UseVisualStyleBackColor = False
         '
@@ -201,10 +282,10 @@ Partial Class AddBooks
         Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClose.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnClose.ForeColor = System.Drawing.Color.White
-        Me.btnClose.Location = New System.Drawing.Point(390, 360)
+        Me.btnClose.Location = New System.Drawing.Point(390, 520)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(160, 45)
-        Me.btnClose.TabIndex = 15
+        Me.btnClose.TabIndex = 23
         Me.btnClose.Text = "Close"
         Me.btnClose.UseVisualStyleBackColor = False
         '
@@ -213,13 +294,21 @@ Partial Class AddBooks
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(600, 430)
+        Me.ClientSize = New System.Drawing.Size(600, 590)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.btnAdd)
-        Me.Controls.Add(Me.cmbCategory)
+        Me.Controls.Add(Me.dtpAddedDate)
+        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.txtShelfLocation)
+        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.txtTotalCopies)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.txtPublishYear)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.txtPublisher)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.txtQuantity)
+        Me.Controls.Add(Me.cmbCategory)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.txtISBN)
         Me.Controls.Add(Me.Label5)
@@ -253,9 +342,17 @@ Partial Class AddBooks
     Friend WithEvents Label5 As Label
     Friend WithEvents txtISBN As TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents txtQuantity As TextBox
-    Friend WithEvents Label7 As Label
     Friend WithEvents cmbCategory As ComboBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents txtPublisher As TextBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents txtPublishYear As TextBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents txtTotalCopies As TextBox
+    Friend WithEvents Label10 As Label
+    Friend WithEvents txtShelfLocation As TextBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents dtpAddedDate As DateTimePicker
     Friend WithEvents btnAdd As Button
     Friend WithEvents btnClear As Button
     Friend WithEvents btnClose As Button

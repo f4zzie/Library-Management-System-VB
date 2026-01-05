@@ -10,6 +10,9 @@ Public Class AddBooks
         ' Generate next Book ID
         txtBookID.Text = GenerateNextBookID()
         txtBookID.ReadOnly = True
+        
+        ' Set Added Date to today
+        dtpAddedDate.Value = DateTime.Now
     End Sub
 
     ' Generate next Book ID
@@ -40,14 +43,20 @@ Public Class AddBooks
                 Return
             End If
 
-            ' Create book record
-            Dim bookRecord As String = String.Format("{0}|{1}|{2}|{3}|{4}|{5}",
+            ' Create book record (now with Publisher, PublishYear, TotalCopies, AvailableCopies, ShelfLocation, AddedDate)
+            Dim totalCopies As Integer = Integer.Parse(txtTotalCopies.Text.Trim())
+            Dim bookRecord As String = String.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}",
                 txtBookID.Text.Trim(),
                 txtTitle.Text.Trim(),
                 txtAuthor.Text.Trim(),
                 txtISBN.Text.Trim(),
-                txtQuantity.Text.Trim(),
-                cmbCategory.Text.Trim())
+                cmbCategory.Text.Trim(),
+                txtPublisher.Text.Trim(),
+                txtPublishYear.Text.Trim(),
+                totalCopies.ToString(),
+                totalCopies.ToString(),
+                txtShelfLocation.Text.Trim(),
+                dtpAddedDate.Value.ToString("yyyy-MM-dd"))
 
             ' Save to file
             File.AppendAllText("books.txt", bookRecord & Environment.NewLine)
@@ -94,18 +103,47 @@ Public Class AddBooks
             Return False
         End If
 
-        ' Validate Quantity
-        If String.IsNullOrWhiteSpace(txtQuantity.Text) Then
-            MessageBox.Show("Please enter the quantity", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            txtQuantity.Focus()
+        ' Validate Publisher
+        If String.IsNullOrWhiteSpace(txtPublisher.Text) Then
+            MessageBox.Show("Please enter the publisher name", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtPublisher.Focus()
             Return False
         End If
 
-        ' Validate Quantity is numeric and positive
-        Dim quantity As Integer
-        If Not Integer.TryParse(txtQuantity.Text, quantity) Or quantity <= 0 Then
-            MessageBox.Show("Quantity must be a positive number", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            txtQuantity.Focus()
+        ' Validate Publish Year
+        If String.IsNullOrWhiteSpace(txtPublishYear.Text) Then
+            MessageBox.Show("Please enter the publish year", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtPublishYear.Focus()
+            Return False
+        End If
+
+        ' Validate Publish Year is numeric and reasonable
+        Dim year As Integer
+        If Not Integer.TryParse(txtPublishYear.Text, year) Or year < 1800 Or year > DateTime.Now.Year + 1 Then
+            MessageBox.Show("Please enter a valid year (1800-" & (DateTime.Now.Year + 1).ToString() & ")", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtPublishYear.Focus()
+            Return False
+        End If
+
+        ' Validate Total Copies
+        If String.IsNullOrWhiteSpace(txtTotalCopies.Text) Then
+            MessageBox.Show("Please enter the total copies", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtTotalCopies.Focus()
+            Return False
+        End If
+
+        ' Validate Total Copies is numeric and positive
+        Dim copies As Integer
+        If Not Integer.TryParse(txtTotalCopies.Text, copies) Or copies <= 0 Then
+            MessageBox.Show("Total copies must be a positive number", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtTotalCopies.Focus()
+            Return False
+        End If
+
+        ' Validate Shelf Location
+        If String.IsNullOrWhiteSpace(txtShelfLocation.Text) Then
+            MessageBox.Show("Please enter the shelf location", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtShelfLocation.Focus()
             Return False
         End If
 
@@ -124,8 +162,12 @@ Public Class AddBooks
         txtTitle.Clear()
         txtAuthor.Clear()
         txtISBN.Clear()
-        txtQuantity.Clear()
+        txtPublisher.Clear()
+        txtPublishYear.Clear()
+        txtTotalCopies.Clear()
+        txtShelfLocation.Clear()
         cmbCategory.SelectedIndex = -1
+        dtpAddedDate.Value = DateTime.Now
         txtBookID.Text = GenerateNextBookID()
         txtTitle.Focus()
     End Sub
@@ -140,8 +182,16 @@ Public Class AddBooks
         Me.Close()
     End Sub
 
-    ' Quantity TextBox - KeyPress (Only allow numbers)
-    Private Sub txtQuantity_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtQuantity.KeyPress
+    ' TotalCopies TextBox - KeyPress (Only allow numbers)
+    Private Sub txtTotalCopies_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtTotalCopies.KeyPress
+        If Not Char.IsDigit(e.KeyChar) And Not Char.IsControl(e.KeyChar) Then
+            e.Handled = True
+            MessageBox.Show("Please enter numbers only", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
+    End Sub
+
+    ' PublishYear TextBox - KeyPress (Only allow numbers)
+    Private Sub txtPublishYear_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPublishYear.KeyPress
         If Not Char.IsDigit(e.KeyChar) And Not Char.IsControl(e.KeyChar) Then
             e.Handled = True
             MessageBox.Show("Please enter numbers only", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)

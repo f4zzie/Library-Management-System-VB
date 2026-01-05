@@ -19,21 +19,31 @@ Public Class ViewBooks
         ' Clear columns
         dgvBooks.Columns.Clear()
 
-        ' Add columns
+        ' Add columns (NEW: 11 fields)
         dgvBooks.Columns.Add("BookID", "Book ID")
         dgvBooks.Columns.Add("Title", "Title")
         dgvBooks.Columns.Add("Author", "Author")
         dgvBooks.Columns.Add("ISBN", "ISBN")
-        dgvBooks.Columns.Add("Quantity", "Quantity")
         dgvBooks.Columns.Add("Category", "Category")
+        dgvBooks.Columns.Add("Publisher", "Publisher")
+        dgvBooks.Columns.Add("PublishYear", "Year")
+        dgvBooks.Columns.Add("TotalCopies", "Total")
+        dgvBooks.Columns.Add("AvailableCopies", "Available")
+        dgvBooks.Columns.Add("ShelfLocation", "Shelf Loc")
+        dgvBooks.Columns.Add("AddedDate", "Added Date")
 
         ' Set column widths
-        dgvBooks.Columns(0).Width = 100
-        dgvBooks.Columns(1).Width = 250
-        dgvBooks.Columns(2).Width = 200
-        dgvBooks.Columns(3).Width = 120
-        dgvBooks.Columns(4).Width = 80
-        dgvBooks.Columns(5).Width = 120
+        dgvBooks.Columns(0).Width = 80   ' BookID
+        dgvBooks.Columns(1).Width = 200  ' Title
+        dgvBooks.Columns(2).Width = 140  ' Author
+        dgvBooks.Columns(3).Width = 100  ' ISBN
+        dgvBooks.Columns(4).Width = 100  ' Category
+        dgvBooks.Columns(5).Width = 130  ' Publisher
+        dgvBooks.Columns(6).Width = 60   ' Year
+        dgvBooks.Columns(7).Width = 60   ' Total
+        dgvBooks.Columns(8).Width = 70   ' Available
+        dgvBooks.Columns(9).Width = 90   ' Shelf
+        dgvBooks.Columns(10).Width = 100 ' Added
 
         ' Set properties
         dgvBooks.ReadOnly = True
@@ -62,15 +72,17 @@ Public Class ViewBooks
                 If Not String.IsNullOrWhiteSpace(line) Then
                     Dim parts() As String = line.Split("|"c)
 
-                    If parts.Length >= 6 Then
+                    If parts.Length >= 11 Then
                         ' Apply search filter if provided
                         If String.IsNullOrWhiteSpace(searchText) OrElse
                            parts(0).ToLower().Contains(searchText.ToLower()) OrElse
                            parts(1).ToLower().Contains(searchText.ToLower()) OrElse
                            parts(2).ToLower().Contains(searchText.ToLower()) OrElse
+                           parts(4).ToLower().Contains(searchText.ToLower()) OrElse
                            parts(5).ToLower().Contains(searchText.ToLower()) Then
 
-                            dgvBooks.Rows.Add(parts(0), parts(1), parts(2), parts(3), parts(4), parts(5))
+                            ' Format: BookID|Title|Author|ISBN|Category|Publisher|PublishYear|TotalCopies|AvailableCopies|ShelfLocation|AddedDate
+                            dgvBooks.Rows.Add(parts(0), parts(1), parts(2), parts(3), parts(4), parts(5), parts(6), parts(7), parts(8), parts(9), parts(10))
                             count += 1
                         End If
                     End If

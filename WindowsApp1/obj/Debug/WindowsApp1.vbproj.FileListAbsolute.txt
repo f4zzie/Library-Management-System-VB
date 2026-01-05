@@ -18,3 +18,7 @@ C:\Users\Zuko\OneDrive\Documents\VBProjects\WindowsApp1\obj\Debug\WindowsApp1.vb
 C:\Users\Zuko\OneDrive\Documents\VBProjects\WindowsApp1\obj\Debug\WindowsApp1.exe
 C:\Users\Zuko\OneDrive\Documents\VBProjects\WindowsApp1\obj\Debug\WindowsApp1.xml
 C:\Users\Zuko\OneDrive\Documents\VBProjects\WindowsApp1\obj\Debug\WindowsApp1.pdb
+C:\Users\Zuko\OneDrive\Documents\VBProjects\WindowsApp1\bin\Debug\WindowsApp1.exe.config
+C:\Users\Zuko\OneDrive\Documents\VBProjects\WindowsApp1\bin\Debug\WindowsApp1.exe
+C:\Users\Zuko\OneDrive\Documents\VBProjects\WindowsApp1\bin\Debug\WindowsApp1.pdb
+C:\Users\Zuko\OneDrive\Documents\VBProjects\WindowsApp1\bin\Debug\WindowsApp1.xml
