@@ -15,6 +15,21 @@ Public Class Form1
         TextBox1.Text = "Password"
         TextBox2.ForeColor = Color.Gray
         TextBox1.ForeColor = Color.Gray
+
+        ' Load school logo
+        LoadSchoolLogo()
+    End Sub
+
+    ' Load School Logo
+    Private Sub LoadSchoolLogo()
+        Try
+            Dim logoPath As String = Path.Combine(Application.StartupPath, "Resources", "kenyatta_logo.png")
+            If File.Exists(logoPath) Then
+                PictureBox1.Image = Image.FromFile(logoPath)
+            End If
+        Catch ex As Exception
+            ' Logo not found - that's okay, form still works
+        End Try
     End Sub
 
     ' Label Click Event
