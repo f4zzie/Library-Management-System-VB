@@ -1,1 +1,1 @@
-MEM0001|Clause Ouma|clauseyb@gmail.com|0757944432|Student|2026-01-04
+MEM0001|Clause Ouma|ST12345|Male|Nairobi, Kenya|clauseyb@gmail.com|0757944432|Student|2026-01-04

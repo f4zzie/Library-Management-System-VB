@@ -46,27 +46,47 @@ Public Class IssueBooks
         End Try
     End Sub
 
-    ' Book Selection Changed
+    ' Book Selection Changed  
     Private Sub cmbBookSelect_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbBookSelect.SelectedIndexChanged
         Try
             If cmbBookSelect.SelectedIndex >= 0 Then
                 Dim selectedText As String = cmbBookSelect.SelectedItem.ToString()
                 ' Extract Book ID from "BK0001 - Title (Available: 5)"
                 Dim bookID As String = selectedText.Split("-"c)(0).Trim()
-
-                ' Get full book info
-                Dim bookInfo As String = GetBookInfo(bookID)
-                If Not String.IsNullOrEmpty(bookInfo) Then
-                    Dim parts() As String = bookInfo.Split("|"c)
-                    If parts.Length >= 11 Then
-                        txtBookID.Text = parts(0)  ' Store Book ID for later use
-                        txtBookTitle.Text = parts(1)
-                        txtAuthor.Text = parts(2)
-                    End If
-                End If
+                txtBookID.Text = bookID  ' Store Book ID for issuing
             End If
         Catch ex As Exception
             MessageBox.Show("Error selecting book: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    ' Search Book TextChanged - Filter dropdown
+    Private Sub txtSearchBook_TextChanged(sender As Object, e As EventArgs) Handles txtSearchBook.TextChanged
+        Try
+            Dim searchText As String = txtSearchBook.Text.ToLower().Trim()
+            cmbBookSelect.Items.Clear()
+
+            If File.Exists("books.txt") Then
+                Dim lines() As String = File.ReadAllLines("books.txt")
+                For Each line As String In lines
+                    If Not String.IsNullOrWhiteSpace(line) Then
+                        Dim parts() As String = line.Split("|"c)
+                        ' Only show books with available copies AND matching search
+                        If parts.Length >= 11 AndAlso Integer.Parse(parts(8)) > 0 Then
+                            Dim displayText As String = String.Format("{0} - {1} (Available: {2})",
+                                parts(0), parts(1), parts(8))
+                            
+                            ' Filter by search text
+                            If String.IsNullOrEmpty(searchText) OrElse
+                               displayText.ToLower().Contains(searchText) Then
+                                cmbBookSelect.Items.Add(displayText)
+                            End If
+                        End If
+                    End If
+                Next
+            End If
+        Catch ex As Exception
+            ' Search error - ignore
         End Try
     End Sub
 
@@ -172,7 +192,7 @@ Public Class IssueBooks
                 txtMemberID.Text.Trim(),
                 dtpIssueDate.Value.ToString("yyyy-MM-dd"),
                 dtpDueDate.Value.ToString("yyyy-MM-dd"),
-                txtBookTitle.Text.Trim())
+                cmbBookSelect.Text.Split("-"c)(1).Trim().Split("("c)(0).Trim())  ' Extract title from dropdown text
 
             ' Save to file
             File.AppendAllText("issued_books.txt", issueRecord & Environment.NewLine)
@@ -198,7 +218,7 @@ Public Class IssueBooks
             Return False
         End If
 
-        If String.IsNullOrWhiteSpace(txtBookTitle.Text) Then
+        If String.IsNullOrWhiteSpace(txtBookID.Text) Then
             MessageBox.Show("Book information not loaded", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return False
         End If
@@ -249,17 +269,16 @@ Public Class IssueBooks
 
     ' Clear Form
     Private Sub ClearForm()
+        txtSearchBook.Clear()
         cmbBookSelect.SelectedIndex = -1
         txtBookID.Clear()
-        txtBookTitle.Clear()
-        txtAuthor.Clear()
         txtMemberID.Clear()
         txtMemberName.Clear()
         dtpIssueDate.Value = DateTime.Now
         dtpDueDate.Value = DateTime.Now.AddDays(14)
         txtIssueID.Text = GenerateNextIssueID()
         LoadAvailableBooks()  ' Refresh book list
-        cmbBookSelect.Focus()
+        txtSearchBook.Focus()
     End Sub
 
     ' Clear Button
