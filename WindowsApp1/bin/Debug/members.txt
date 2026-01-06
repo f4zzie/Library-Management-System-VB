@@ -1,1 +1,2 @@
 MEM0001|Clause Ouma|clauseyb@gmail.com|0757944432|Student|2026-01-04
+MEM0002|Ted|J17/1187/2024|Male|KLAUS|test@test.com|875437832|Student|2026-01-06

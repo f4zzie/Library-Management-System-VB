@@ -22,3 +22,15 @@ C:\Users\Zuko\OneDrive\Documents\VBProjects\WindowsApp1\bin\Debug\WindowsApp1.ex
 C:\Users\Zuko\OneDrive\Documents\VBProjects\WindowsApp1\bin\Debug\WindowsApp1.exe
 C:\Users\Zuko\OneDrive\Documents\VBProjects\WindowsApp1\bin\Debug\WindowsApp1.pdb
 C:\Users\Zuko\OneDrive\Documents\VBProjects\WindowsApp1\bin\Debug\WindowsApp1.xml
+C:\Users\vboxuser\source\repos\VBProjects\WindowsApp1\bin\Debug\WindowsApp1.exe.config
+C:\Users\vboxuser\source\repos\VBProjects\WindowsApp1\bin\Debug\WindowsApp1.exe
+C:\Users\vboxuser\source\repos\VBProjects\WindowsApp1\bin\Debug\WindowsApp1.pdb
+C:\Users\vboxuser\source\repos\VBProjects\WindowsApp1\bin\Debug\WindowsApp1.xml
+C:\Users\vboxuser\source\repos\VBProjects\WindowsApp1\obj\Debug\WindowsApp1.vbproj.AssemblyReference.cache
+C:\Users\vboxuser\source\repos\VBProjects\WindowsApp1\obj\Debug\WindowsApp1.Form1.resources
+C:\Users\vboxuser\source\repos\VBProjects\WindowsApp1\obj\Debug\WindowsApp1.Resources.resources
+C:\Users\vboxuser\source\repos\VBProjects\WindowsApp1\obj\Debug\WindowsApp1.vbproj.GenerateResource.cache
+C:\Users\vboxuser\source\repos\VBProjects\WindowsApp1\obj\Debug\WindowsApp1.vbproj.CoreCompileInputs.cache
+C:\Users\vboxuser\source\repos\VBProjects\WindowsApp1\obj\Debug\WindowsApp1.exe
+C:\Users\vboxuser\source\repos\VBProjects\WindowsApp1\obj\Debug\WindowsApp1.xml
+C:\Users\vboxuser\source\repos\VBProjects\WindowsApp1\obj\Debug\WindowsApp1.pdb
