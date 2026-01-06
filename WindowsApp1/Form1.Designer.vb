@@ -100,11 +100,11 @@ Partial Class Form1
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(38, 40)
+        Me.Label3.Location = New System.Drawing.Point(40, 50)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(127, 54)
+        Me.Label3.Size = New System.Drawing.Size(315, 54)
         Me.Label3.TabIndex = 6
-        Me.Label3.Text = "Login"
+        Me.Label3.Text = "MEMBER LOGIN"
         '
         'Button2
         '
@@ -135,12 +135,13 @@ Partial Class Form1
         '
         Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.White
         Me.Button1.Location = New System.Drawing.Point(49, 310)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(120, 40)
+        Me.Button1.Size = New System.Drawing.Size(300, 45)
         Me.Button1.TabIndex = 4
+        Me.Button1.Text = "LOGIN"
         Me.Button1.UseVisualStyleBackColor = False
         '
         'Panel2

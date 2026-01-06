@@ -15,6 +15,36 @@ Public Class Form1
         TextBox1.Text = "Password"
         TextBox2.ForeColor = Color.Gray
         TextBox1.ForeColor = Color.Gray
+
+        ' Load school logo
+        LoadSchoolLogo()
+    End Sub
+
+    ' Load School Logo
+    Private Sub LoadSchoolLogo()
+        Try
+            ' List of possible names you might use
+            Dim possibleNames() As String = {"ku.png", "ku.jpg", "kenyatta_logo.png"}
+            
+            ' List of folders to check
+            Dim possibleFolders() As String = {
+                Path.Combine(Application.StartupPath, "Resources"),
+                Path.Combine(Application.StartupPath, "..", "..", "Resources"), ' Project root when debugging
+                Application.StartupPath
+            }
+
+            For Each folder In possibleFolders
+                For Each fileName In possibleNames
+                    Dim fullPath As String = Path.Combine(folder, fileName)
+                    If File.Exists(fullPath) Then
+                        PictureBox1.Image = Image.FromFile(fullPath)
+                        Return ' Exit once we find a logo
+                    End If
+                Next
+            Next
+        Catch ex As Exception
+            ' If it fails, the app still works without the logo
+        End Try
     End Sub
 
     ' Label Click Event

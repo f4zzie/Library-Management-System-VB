@@ -20,10 +20,8 @@ Partial Class IssueBooks
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.txtAuthor = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.txtBookTitle = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtSearchBook = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.cmbBookSelect = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -69,77 +67,55 @@ Partial Class IssueBooks
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.txtAuthor)
-        Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.Controls.Add(Me.txtBookTitle)
-        Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.cmbBookSelect)
         Me.GroupBox1.Controls.Add(Me.Label2)
+        Me.GroupBox1.Controls.Add(Me.txtSearchBook)
+        Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.GroupBox1.Location = New System.Drawing.Point(30, 90)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(640, 140)
+        Me.GroupBox1.Size = New System.Drawing.Size(640, 110)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Book Information"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label10.Location = New System.Drawing.Point(20, 33)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(90, 19)
+        Me.Label10.TabIndex = 0
+        Me.Label10.Text = "Search Book:"
+        '
+        'txtSearchBook
+        '
+        Me.txtSearchBook.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.txtSearchBook.Location = New System.Drawing.Point(140, 30)
+        Me.txtSearchBook.Name = "txtSearchBook"
+        Me.txtSearchBook.Size = New System.Drawing.Size(480, 25)
+        Me.txtSearchBook.TabIndex = 1
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label2.Location = New System.Drawing.Point(20, 68)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(86, 19)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Select Book:"
         '
         'cmbBookSelect
         '
         Me.cmbBookSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbBookSelect.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.cmbBookSelect.FormattingEnabled = True
-        Me.cmbBookSelect.Location = New System.Drawing.Point(140, 30)
+        Me.cmbBookSelect.Location = New System.Drawing.Point(140, 65)
         Me.cmbBookSelect.Name = "cmbBookSelect"
         Me.cmbBookSelect.Size = New System.Drawing.Size(480, 25)
-        Me.cmbBookSelect.TabIndex = 1
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label2.Location = New System.Drawing.Point(20, 33)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(86, 19)
-        Me.Label2.TabIndex = 0
-        Me.Label2.Text = "Select Book:"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label3.Location = New System.Drawing.Point(20, 68)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(75, 19)
-        Me.Label3.TabIndex = 2
-        Me.Label3.Text = "Book Title:"
-        '
-        'txtBookTitle
-        '
-        Me.txtBookTitle.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.txtBookTitle.Location = New System.Drawing.Point(140, 65)
-        Me.txtBookTitle.Name = "txtBookTitle"
-        Me.txtBookTitle.ReadOnly = True
-        Me.txtBookTitle.Size = New System.Drawing.Size(480, 25)
-        Me.txtBookTitle.TabIndex = 3
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label4.Location = New System.Drawing.Point(20, 103)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(57, 19)
-        Me.Label4.TabIndex = 4
-        Me.Label4.Text = "Author:"
-        '
-        'txtAuthor
-        '
-        Me.txtAuthor.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.txtAuthor.Location = New System.Drawing.Point(140, 100)
-        Me.txtAuthor.Name = "txtAuthor"
-        Me.txtAuthor.ReadOnly = True
-        Me.txtAuthor.Size = New System.Drawing.Size(480, 25)
-        Me.txtAuthor.TabIndex = 5
+        Me.cmbBookSelect.TabIndex = 3
         '
         'GroupBox2
         '
@@ -149,7 +125,7 @@ Partial Class IssueBooks
         Me.GroupBox2.Controls.Add(Me.txtMemberID)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.GroupBox2.Location = New System.Drawing.Point(30, 245)
+        Me.GroupBox2.Location = New System.Drawing.Point(30, 215)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(640, 105)
         Me.GroupBox2.TabIndex = 2
@@ -341,10 +317,8 @@ Partial Class IssueBooks
     Friend WithEvents cmbBookSelect As ComboBox
     Friend WithEvents txtBookID As TextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents txtAuthor As TextBox
-    Friend WithEvents Label4 As Label
-    Friend WithEvents txtBookTitle As TextBox
-    Friend WithEvents Label3 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents txtSearchBook As TextBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents txtMemberID As TextBox
     Friend WithEvents Label5 As Label
