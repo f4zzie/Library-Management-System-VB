@@ -1182,4 +1182,23 @@ NAVIGATION OPTIONS:
 
 ## Data Storage
 
-...existing code...
+The application uses **text-based file storage** with pipe-delimited format for simplicity and portability.
+
+### Storage Location
+All data files are stored in the application's executable directory:
+- `books.txt` - Book inventory database
+- `members.txt` - Member registration database
+- `issued_books.txt` - Book circulation and transaction history
+
+---
+
+### 1. Books Database (books.txt)
+
+**Format:** Pipe-delimited text file (|)
+
+**Structure:**
+```
+BookID|Title|Author|ISBN|Category|Publisher|PublishYear|TotalCopies|AvailableCopies|ShelfLocation|AddedDate
+```
+
+**Field Descriptions:**
